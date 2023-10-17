@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Canveat';
+  src: local('Canveat'),
+    url(./fonts/Caveat-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Yeseva';
+  src: local('Yeseva'), url(./fonts/YesevaOne-Regular.ttf) format('truetype');
+}
+
+body {
+  background: #e5e5e5;
+}
