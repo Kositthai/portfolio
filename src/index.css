@@ -9,6 +9,11 @@
   src: local('Yeseva'), url(./fonts/YesevaOne-Regular.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Barlow';
+  src: local('Barlow'), url(./fonts/Barlow-Thin.ttf) format('truetype');
+}
+
 body {
   background: #e5e5e5;
 }

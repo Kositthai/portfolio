@@ -1,9 +1,8 @@
-import './App.css';
-import Frontpage from './pages/Frontpage';
-import CV from './pages/CV';
+import './App.css'
+import Frontpage from './pages/Frontpage'
+import CV from './pages/CV'
 
 function App() {
-  console.log(window.innerHeight);
   return (
     <div className="App">
       <div className="slide">
@@ -13,7 +12,7 @@ function App() {
         <CV />
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
