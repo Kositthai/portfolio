@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import SocialMedia from './SocialMedia'
-import {useRef, useEffect} from 'react'
 import gsap from 'gsap'
+import {useRef, useEffect, useState} from 'react'
+import SocialMedia from './SocialMedia'
+
 import TextPlugin from 'gsap/TextPlugin'
 
 const Container = styled.div`
@@ -23,21 +24,27 @@ const SubTitle = styled.h2``
 gsap.registerPlugin(TextPlugin) // Register the TextPlugin
 
 const Introduction: React.FC = () => {
+  const [introductionAnimationCompleted, setIntroductionAnimationCompleted] =
+    useState(false)
+
   const nameRef = useRef(null)
   const roleRef = useRef(null)
-  const introduceMsg = gsap.timeline()
+  const introductionTimeline = gsap.timeline()
 
   useEffect(() => {
     const nameElement = nameRef.current
     const roleElement = roleRef.current
 
-    introduceMsg.to(nameElement, {
+    introductionTimeline.to(nameElement, {
       duration: 2,
       text: 'I am Vipavee Kositthai',
     })
-    introduceMsg.to(roleElement, {
+    introductionTimeline.to(roleElement, {
       duration: 2,
       text: 'Front End Developer',
+      onComplete: () => {
+        setIntroductionAnimationCompleted(true)
+      },
     })
   }, [])
 
@@ -47,7 +54,9 @@ const Introduction: React.FC = () => {
         <Title id="myText" ref={nameRef}></Title>
         <SubTitle id="role" ref={roleRef}></SubTitle>
       </div>
-      <SocialMedia />
+      <SocialMedia
+        introductionAnimationCompleted={introductionAnimationCompleted}
+      />
     </Container>
   )
 }
