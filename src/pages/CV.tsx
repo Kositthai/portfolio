@@ -7,7 +7,6 @@ import Stone from '../assets/images/stone.png'
 import Hyf from '../assets/images/hyf-logo.svg'
 import Rock from '../assets/images/stone.png'
 import Walor from '../assets/images/walor-logo.svg'
-import {TextPlugin} from 'gsap/TextPlugin'
 
 const Container = styled.div`
   height: 100vh;
@@ -111,9 +110,8 @@ const StyledWalorMessage = styled.p`
   opacity: 0;
 `
 
-const CV = () => {
+const CV: React.FC = () => {
   const myRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLParagraphElement | null>(null)
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -133,32 +131,11 @@ const CV = () => {
       .to('.walor-message, .walor', {opacity: 0, duration: 1})
       .to('.bike', {x: '1000%', duration: 2})
 
-    const text = textRef.current
-    const textContent = text?.textContent
-    const characters = textContent?.split('')
-
-    if (!characters) return
-
-    const typing = gsap.timeline()
-
-    characters.forEach((word, index) => {
-      const delay = index * 0.1
-      const partialText = characters.slice(0, index + 1).join('')
-
-      typing.to(text, {
-        duration: 0.2,
-        textContent: partialText,
-        ease: 'power1.inOut',
-        delay: delay,
-      })
-    })
-
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0]
 
       if (entry.isIntersecting) {
         tl.restart()
-        typing.restart()
       }
     })
 
@@ -176,20 +153,15 @@ const CV = () => {
             <Image src={glassesWoman} />
           </Frame>
           <IntroduceMessage>
-            <p className="hello" ref={textRef}>
-              Animation typewriter style using GSAP
-            </p>
             <p className="first-paragraph">
-              Hello, I'm <strong>Vipavee Kositthai</strong>, originally from
-              Thailand with background of Logistics management. I discovered my
-              new passion for coding during my unemployment. This discovery led
-              my journey further by joining the{' '}
-              <strong>HackyourFuture bootcamp.</strong>
-            </p>
-            <p className="second-paragraph">
+              Hello, I'm <strong>Vipavee Kositthai</strong>, Background of
+              Logistics management. I discovered my new passion for coding
+              during my unemployment. This discovery led my journey further by
+              joining the <strong>HackyourFuture bootcamp.</strong> {''}
               After successfully completing the bootcamp, I had the fantastic
               opportunity to intern at <strong>Walor.</strong>
             </p>
+
             <p className="third-paragraph">
               Our team at Walor is small but tightly-knit, working closely
               together and sharing innovative ideas. In my role as a{' '}
