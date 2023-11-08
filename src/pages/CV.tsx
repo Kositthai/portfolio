@@ -7,6 +7,7 @@ import Stone from '../assets/images/stone.png'
 import Hyf from '../assets/images/hyf-logo.svg'
 import Rock from '../assets/images/stone.png'
 import Walor from '../assets/images/walor-logo.svg'
+import Skills from '../components/Skills'
 
 const Container = styled.div`
   height: 100vh;
@@ -171,6 +172,7 @@ const CV: React.FC = () => {
             </p>
           </IntroduceMessage>
         </ResumeContainer>
+        <Skills />
         <div ref={myRef}>
           <StlyedBike src={Bike} className="bike" />
           <StyledStone src={Stone} className="stone" />
