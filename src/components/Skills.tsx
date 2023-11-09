@@ -3,13 +3,13 @@ import {
   BiLogoReact,
   BiLogoTypescript,
   BiLogoJavascript,
-  BiLogoGithub,
   BiLogoHtml5,
   BiLogoCss3,
   BiLogoFigma,
   BiLogoBootstrap,
 } from 'react-icons/bi'
 import {SiMui} from 'react-icons/si'
+import {BsGit} from 'react-icons/bs'
 
 const Container = styled.div`
   display: flex;
@@ -18,8 +18,7 @@ const Container = styled.div`
   font-size: 0.8rem;
   margin: 0 3rem;
   position: relative;
-  border: 2px dotted black;
-  border-radius: 5px;
+
   padding: 0.5rem;
 `
 
@@ -95,7 +94,7 @@ const Skills: React.FC = () => {
       name: 'Material Ui',
     },
     {
-      icon: BiLogoGithub,
+      icon: BsGit,
       name: 'Git',
     },
     {
@@ -105,7 +104,7 @@ const Skills: React.FC = () => {
   ]
   return (
     <Container>
-      <Title>SKILLS</Title>
+      <Title>Skills</Title>
       <SkillIcons>
         {skillObj.map((item) => {
           const IconComponent = item.icon

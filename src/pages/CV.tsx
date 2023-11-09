@@ -8,11 +8,13 @@ import Hyf from '../assets/images/hyf-logo.svg'
 import Rock from '../assets/images/stone.png'
 import Walor from '../assets/images/walor-logo.svg'
 import Skills from '../components/Skills'
+import Certificate from '../components/Certificate'
 
 const Container = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  font-family: Barlow;
 `
 
 const Wrapper = styled.div`
@@ -43,7 +45,7 @@ const IntroduceMessage = styled.div`
   border: 2px solid #37342f;
   border-radius: 1rem;
   margin: 3rem;
-  font-family: Barlow;
+
   font-size: 1rem;
   padding: 1rem;
   line-height: 1.5;
@@ -111,6 +113,13 @@ const StyledWalorMessage = styled.p`
   opacity: 0;
 `
 
+const Experience = styled.p`
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-left: 3.5rem;
+`
+
 const CV: React.FC = () => {
   const myRef = useRef<HTMLDivElement>(null)
 
@@ -123,7 +132,8 @@ const CV: React.FC = () => {
     })
 
     tl.to('.bike', {x: '200%', duration: 2, ease: 'bounce'})
-      .to('.hyf', {opacity: 1, y: '45%', duration: 2, ease: 'back.out'}) // '<' means start after the previous tween
+      .to('.experience', {opacity: 0, duration: 3, x: '-10%'})
+      .to('.hyf', {opacity: 1, y: '45%', duration: 2, ease: 'back.out'})
       .to('.hyf-message', {y: '500%', opacity: 1, duration: 2}, '<')
       .to('.hyf-message, .hyf', {opacity: 0})
       .to('.bike', {x: '580%', duration: 2})
@@ -131,7 +141,7 @@ const CV: React.FC = () => {
       .to('.walor-message', {y: '42%', opacity: 1, duration: 2}, '<')
       .to('.walor-message, .walor', {opacity: 0, duration: 1})
       .to('.bike', {x: '1000%', duration: 2})
-      .to('.rock, .stone', {opacity: 0})
+      .to('.rock, .stone', {opacity: 0, duration: 2})
 
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0]
@@ -159,7 +169,7 @@ const CV: React.FC = () => {
               Hello, I'm <strong>Vipavee Kositthai</strong>, Background of
               Logistics management. I discovered my new passion for coding
               during my unemployment. This discovery led my journey further by
-              joining the <strong>HackyourFuture bootcamp.</strong> {''}
+              joining the <strong>HackYourFuture bootcamp.</strong> {''}
               After successfully completing the bootcamp, I had the fantastic
               opportunity to intern at <strong>Walor.</strong>
             </p>
@@ -174,7 +184,10 @@ const CV: React.FC = () => {
           </IntroduceMessage>
         </ResumeContainer>
         <Skills />
+        <Certificate />
+
         <div ref={myRef}>
+          <Experience className="experience">Experience</Experience>
           <StlyedBike src={Bike} className="bike" />
           <StyledStone src={Stone} className="stone" />
           <StyledRock src={Rock} className="rock" />

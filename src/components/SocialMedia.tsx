@@ -27,7 +27,10 @@ const SocialMediaIcon = styled.i`
   padding: 0.5em 0.5em;
 `
 
-const SocialMediaLink = styled.a``
+const SocialMediaLink = styled.a`
+  text-decoration: none;
+  color: black;
+`
 
 interface SocialMediaProps {
   introductionAnimationCompleted: boolean
@@ -39,7 +42,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
   const socialMediaList = [
     {
       icon: HiOutlineMail,
-      link: 'https://www.linkedin.com/in/vipavee-kositthai/',
+      link: 'mailto:vkositthai@outlook.com',
     },
     {
       icon: FaLinkedin,
@@ -47,7 +50,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
     },
     {
       icon: FaGithub,
-      link: 'https://www.linkedin.com/in/vipavee-kositthai/',
+      link: 'https://github.com/Kositthai',
     },
   ]
 
@@ -67,9 +70,10 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
       <Container>
         {socialMediaList.map((item) => {
           return (
-            <SocialMediaItem className="media">
-              <SocialMediaIcon as={item.icon} />
-              <SocialMediaLink href={item.link} />
+            <SocialMediaItem className="media" key={item.link}>
+              <SocialMediaLink href={item.link} target="_blank">
+                <SocialMediaIcon as={item.icon} />
+              </SocialMediaLink>
             </SocialMediaItem>
           )
         })}

@@ -1,6 +1,7 @@
 import './App.css'
 import Frontpage from './pages/Frontpage'
 import CV from './pages/CV'
+import Project from './pages/Project'
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       </div>
       <div className="slide">
         <CV />
+      </div>
+      <div className="slide">
+        <Project />
       </div>
     </div>
   )
