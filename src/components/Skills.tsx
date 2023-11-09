@@ -21,10 +21,10 @@ const Container = styled.div`
   border: 2px dotted black;
   border-radius: 5px;
   padding: 0.5rem;
-  /* background: #d8cca3; */
 `
 
 const Title = styled.h1`
+  font-size: 1.5rem;
   /* &::before {
     content: '';
     width: 30px;
@@ -53,24 +53,69 @@ const SkillIcons = styled.div`
   margin-left: 3.5rem;
 
   & > * {
-    margin: auto 2rem;
+    margin: auto 1.7rem;
   }
 `
 
-const Skills = () => {
+const SkillItem = styled.div``
+
+const IconName = styled.p`
+  font-size: 1rem;
+  text-align: center;
+`
+
+const Skills: React.FC = () => {
+  const skillObj = [
+    {
+      icon: BiLogoReact,
+      name: 'React',
+    },
+    {
+      icon: BiLogoTypescript,
+      name: 'Typscript',
+    },
+    {
+      icon: BiLogoJavascript,
+      name: 'Javascript',
+    },
+    {
+      icon: BiLogoHtml5,
+      name: 'HTML',
+    },
+    {
+      icon: BiLogoCss3,
+      name: 'CSS',
+    },
+    {
+      icon: BiLogoBootstrap,
+      name: 'Bootstrap',
+    },
+    {
+      icon: SiMui,
+      name: 'Material Ui',
+    },
+    {
+      icon: BiLogoGithub,
+      name: 'Git',
+    },
+    {
+      icon: BiLogoFigma,
+      name: 'Figma',
+    },
+  ]
   return (
     <Container>
       <Title>SKILLS</Title>
       <SkillIcons>
-        <BiLogoReact />
-        <BiLogoTypescript />
-        <BiLogoJavascript />
-        <BiLogoHtml5 />
-        <BiLogoCss3 />
-        <BiLogoBootstrap />
-        <SiMui />
-        <BiLogoGithub />
-        <BiLogoFigma />
+        {skillObj.map((item) => {
+          const IconComponent = item.icon
+          return (
+            <SkillItem>
+              <IconComponent />
+              <IconName>{item.name}</IconName>
+            </SkillItem>
+          )
+        })}
       </SkillIcons>
     </Container>
   )

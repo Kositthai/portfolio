@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import glassesWoman from '../assets/images/woman.png'
 import Bike from '../assets/images/bicycle (2).png'
 import gsap from 'gsap'
-import {useEffect, useState, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import Stone from '../assets/images/stone.png'
 import Hyf from '../assets/images/hyf-logo.svg'
 import Rock from '../assets/images/stone.png'
@@ -119,10 +119,10 @@ const CV: React.FC = () => {
       defaults: {
         ease: 'power2.out', // Default ease for all tweens
       },
-      repeat: -1,
+      repeat: 1,
     })
 
-    tl.to('.bike', {x: '200%', duration: 2})
+    tl.to('.bike', {x: '200%', duration: 2, ease: 'bounce'})
       .to('.hyf', {opacity: 1, y: '45%', duration: 2, ease: 'back.out'}) // '<' means start after the previous tween
       .to('.hyf-message', {y: '500%', opacity: 1, duration: 2}, '<')
       .to('.hyf-message, .hyf', {opacity: 0})
@@ -131,6 +131,7 @@ const CV: React.FC = () => {
       .to('.walor-message', {y: '42%', opacity: 1, duration: 2}, '<')
       .to('.walor-message, .walor', {opacity: 0, duration: 1})
       .to('.bike', {x: '1000%', duration: 2})
+      .to('.rock, .stone', {opacity: 0})
 
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0]
