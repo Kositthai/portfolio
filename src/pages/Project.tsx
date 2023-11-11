@@ -3,7 +3,7 @@ import projectInitialImg from '../assets/images//output-onlinegiftools.gif'
 import {duration} from '@mui/material'
 import gsap from 'gsap'
 import MotionPathPlugin from 'gsap/MotionPathPlugin'
-import {useEffect} from 'react'
+import {useEffect, useRef} from 'react'
 
 const Container = styled.div`
   width: 100%;
@@ -31,8 +31,15 @@ const StyledSVG = styled.svg`
 gsap.registerPlugin(MotionPathPlugin)
 
 function Project() {
+  // useEffect(() => {
+
+  // }, []) // Run the animation once on mount
+
+  const myRef = useRef(null)
   useEffect(() => {
-    gsap.to('.butterfly', {
+    const tl = gsap.timeline({paused: true})
+
+    tl.to('.butterfly', {
       duration: 5,
       delay: 2,
       motionPath: [
@@ -42,7 +49,20 @@ function Project() {
       ],
       ease: 'power1.inOut',
     })
-  }, []) // Run the animation once on mount
+
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0]
+
+      if (entry.isIntersecting) {
+        tl.restart()
+      }
+    })
+
+    // Observe the element
+    if (myRef.current) {
+      observer.observe(myRef.current)
+    }
+  }, [myRef])
 
   return (
     <Container>
@@ -59,7 +79,7 @@ function Project() {
         </text>
       </StyledSVG>
 
-      <Butterfly src={projectInitialImg} className="butterfly" />
+      <Butterfly src={projectInitialImg} className="butterfly" ref={myRef} />
     </Container>
   )
 }
