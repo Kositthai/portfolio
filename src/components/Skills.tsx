@@ -18,31 +18,13 @@ const Container = styled.div`
   font-size: 0.8rem;
   margin: 0 3rem;
   position: relative;
-
   padding: 0.5rem;
+  color: #37342f;
+  font-weight: 600;
 `
 
 const Title = styled.h1`
   font-size: 1.5rem;
-  /* &::before {
-    content: '';
-    width: 30px;
-    height: 2px;
-    background: black;
-    position: absolute;
-    left: -3rem;
-    top: 50%;
-  }
-
-  &::after {
-    content: '';
-    width: 30px;
-    height: 2px;
-    background: black;
-    position: absolute;
-    left: 6rem;
-    top: 50%;
-  } */
 `
 const SkillIcons = styled.div`
   display: flex;

@@ -183,8 +183,9 @@ const CV: React.FC = () => {
             </p>
           </IntroduceMessage>
         </ResumeContainer>
-        <Skills />
+
         <Certificate />
+        <Skills />
 
         <div ref={myRef}>
           <Experience className="experience">Experience</Experience>
