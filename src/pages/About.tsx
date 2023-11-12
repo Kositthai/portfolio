@@ -158,7 +158,7 @@ const CV: React.FC = () => {
   }, [myRef])
 
   return (
-    <Container style={{height: '100vh', position: 'relative'}}>
+    <Container id="about" style={{height: '100vh', position: 'relative'}}>
       <Wrapper>
         <ResumeContainer>
           <Frame>

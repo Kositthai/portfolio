@@ -48,41 +48,42 @@ const IconName = styled.p`
 const Skills: React.FC = () => {
   const skillObj = [
     {
+      id: 1,
       icon: BiLogoReact,
       name: 'React',
     },
     {
+      id: 2,
       icon: BiLogoTypescript,
       name: 'Typscript',
     },
     {
+      id: 3,
       icon: BiLogoJavascript,
       name: 'Javascript',
     },
     {
+      id: 4,
       icon: BiLogoHtml5,
       name: 'HTML',
     },
     {
+      id: 5,
       icon: BiLogoCss3,
       name: 'CSS',
     },
+    {id: 6, icon: BiLogoBootstrap, name: 'Bootstrap'},
     {
-      icon: BiLogoBootstrap,
-      name: 'Bootstrap',
-    },
-    {
+      id: 7,
       icon: SiMui,
       name: 'Material Ui',
     },
     {
+      id: 8,
       icon: BsGit,
       name: 'Git',
     },
-    {
-      icon: BiLogoFigma,
-      name: 'Figma',
-    },
+    {id: 10, icon: BiLogoFigma, name: 'Figma'},
   ]
   return (
     <Container>
@@ -91,7 +92,7 @@ const Skills: React.FC = () => {
         {skillObj.map((item) => {
           const IconComponent = item.icon
           return (
-            <SkillItem>
+            <SkillItem key={item.id}>
               <IconComponent />
               <IconName>{item.name}</IconName>
             </SkillItem>

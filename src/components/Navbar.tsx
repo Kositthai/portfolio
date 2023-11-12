@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Container = styled.div`
   display: flex;
-  margin: 0rem 7rem;
   align-items: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-`;
+  padding: 3rem 7rem;
+`
 const Logo = styled.div`
   font-size: 2rem;
   color: white;
@@ -15,28 +15,38 @@ const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const NavbarList = styled.ul`
   list-style: none;
   display: flex;
-`;
+`
 
 const NavbarItem = styled.li`
   margin: 0 2rem;
-`;
+  list-style: none;
+`
+
+const Link = styled.a`
+  text-decoration: none;
+  color: #37342f;
+`
 
 const Navbar = () => {
   return (
     <Container>
       <Logo>VK</Logo>
+      <NavbarItem>
+        <Link href="#about">About</Link>
+      </NavbarItem>
       <NavbarList>
-        <NavbarItem>Work</NavbarItem>
-        <NavbarItem>About</NavbarItem>
+        <NavbarItem>
+          <Link href="#work">Projcects</Link>
+        </NavbarItem>
         <NavbarItem>Contact</NavbarItem>
       </NavbarList>
     </Container>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

@@ -3,9 +3,7 @@ import Introduction from '../components/Introduction'
 import ProfileImage from '../components/ProfileImage'
 import Navbar from '../components/Navbar'
 
-const Container = styled.div`
-  padding-top: 3rem;
-`
+const Container = styled.div``
 
 const Content = styled.div`
   display: flex;
