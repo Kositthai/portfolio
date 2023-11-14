@@ -9,7 +9,18 @@ import cinemania from '../assets/images/cinemania.png'
 import figma from '../assets/images/convertFigma.png'
 import {useState} from 'react'
 import eye from '../assets/images/imgonline-com-ua-resize-WnBqqFROiKQBzh-removebg-preview (1).png'
-import {setuid} from 'process'
+import {
+  BiLogoReact,
+  BiLogoTypescript,
+  BiLogoJavascript,
+  BiLogoHtml5,
+  BiLogoCss3,
+  BiLogoFigma,
+  BiLogoBootstrap,
+  BiLogoNodejs,
+} from 'react-icons/bi'
+import {SiMui, SiMysql, SiJira} from 'react-icons/si'
+import {BsGit} from 'react-icons/bs'
 
 const Container = styled.div`
   width: 100%;
@@ -73,10 +84,10 @@ const ProjectDetail = styled.div`
 `
 
 const ProjectDescription = styled.p`
-  width: 50%;
+  width: 70%;
   text-align: center;
-  margin: auto auto;
-  font-size: 1.2rem;
+  margin: 1rem auto;
+  font-size: 1rem;
   line-height: 2rem;
 `
 
@@ -97,6 +108,11 @@ const StyledButton = styled.button`
 const Link = styled.a`
   text-decoration: none;
   color: white;
+`
+
+const StyledIcon = styled.div`
+  font-size: 2rem;
+  margin: 1rem;
 `
 
 type ProjectType = {
@@ -167,23 +183,35 @@ function Project() {
       id: 1,
       image: figma,
       descrition:
-        'This is my first HTML and CSS project, which I created during self-study. I converted a design from Figma into a static web',
+        'This is my first HTML and CSS project, which I created during self-study. I converted a design from Figma into a static web.',
       source: 'https://github.com/Kositthai/Figma-To-Web',
       live: 'https://duplicating-project-figma.vercel.app/',
+      tool: [BiLogoHtml5, BiLogoCss3, BiLogoFigma],
     },
     {
       id: 2,
       image: mealShairing,
-      descrition: 'This is meal sharing app',
+      descrition:
+        'A full-stack application equipped with features for making reservations and leaving reviews, along with additional capabilities for sorting and creation date.',
       source: 'https://github.com/Kositthai/Meal-Sharing-App',
       live: 'https://meal-sharing-app-production.up.railway.app/',
+      tool: [BiLogoReact, BiLogoJavascript, BiLogoNodejs, SiMysql],
     },
     {
       id: 3,
       image: cinemania,
-      descrition: 'This is cinemania app',
+      descrition:
+        'Collaborative group project undertaken with my classmates at HackYourFuture Bootcamp. The application includes functionality to add favorite movies to a personal list, a shopping cart feature, and incorporates sorting and search capabilities.',
       source: 'https://github.com/HackYourFuture-CPH/CINEMANIA',
       live: 'https://cinemania.fly.dev/',
+      tool: [
+        BiLogoReact,
+        BiLogoJavascript,
+        BiLogoNodejs,
+        SiMysql,
+        SiMui,
+        SiJira,
+      ],
     },
   ]
 
@@ -203,8 +231,6 @@ function Project() {
         <Projects id="projects">PROJECTS</Projects>
         <Butterfly src={projectInitialImg} className="butterfly" ref={myRef} />
       </AnimationContainer>
-
-      {/* // only project id that selected will show the detail */}
       <Box>
         {projectsObj.map((project, key) => {
           return idNumber.includes(project.id) ? (
@@ -214,6 +240,12 @@ function Project() {
             >
               <div>
                 <ProjectDescription>{project.descrition}</ProjectDescription>
+                <StyledIcon>
+                  {project.tool.map((item) => {
+                    const IconComponent = item
+                    return <IconComponent style={{margin: '0 1rem'}} />
+                  })}
+                </StyledIcon>
                 <StyledButton>
                   <Link href={project.source}>Source</Link>
                 </StyledButton>

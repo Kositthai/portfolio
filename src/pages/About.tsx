@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import glassesWoman from '../assets/images/woman.png'
+import glassesWoman from '../assets/images/myself.png'
 import Bike from '../assets/images/bicycle (2).png'
 import gsap from 'gsap'
 import {useEffect, useRef} from 'react'
@@ -29,15 +29,18 @@ const Wrapper = styled.div`
 
 const Frame = styled.div`
   border-radius: 50%;
-  width: fit-content;
+  width: 20rem;
   border: none;
   margin: auto 0 auto 3rem;
+  background: #ff91004f;
+  overflow: hidden;
 `
 
 const Image = styled.img`
   width: 8rem;
   display: block;
   margin: auto;
+  overflow: hidden;
 `
 
 const IntroduceMessage = styled.div`
@@ -162,7 +165,7 @@ const CV: React.FC = () => {
       <Wrapper>
         <ResumeContainer>
           <Frame>
-            <Image src={glassesWoman} />
+            <Image src={glassesWoman} style={{width: '15rem'}} />
           </Frame>
           <IntroduceMessage>
             <p className="first-paragraph">

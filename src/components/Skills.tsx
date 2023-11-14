@@ -7,8 +7,9 @@ import {
   BiLogoCss3,
   BiLogoFigma,
   BiLogoBootstrap,
+  BiLogoNodejs,
 } from 'react-icons/bi'
-import {SiMui} from 'react-icons/si'
+import {SiMui, SiMysql} from 'react-icons/si'
 import {BsGit} from 'react-icons/bs'
 
 const Container = styled.div`
@@ -30,11 +31,11 @@ const SkillIcons = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 3rem;
-  margin-left: 3.5rem;
+  font-size: 2rem;
+  margin-left: 1.5rem;
 
   & > * {
-    margin: auto 1.7rem;
+    margin: auto 1.5rem;
   }
 `
 
@@ -72,18 +73,25 @@ const Skills: React.FC = () => {
       icon: BiLogoCss3,
       name: 'CSS',
     },
-    {id: 6, icon: BiLogoBootstrap, name: 'Bootstrap'},
+    {id: 6, icon: BiLogoNodejs, name: 'Nodejs'},
     {
       id: 7,
+      icon: SiMysql,
+      name: 'MySQL',
+    },
+    {id: 8, icon: BiLogoBootstrap, name: 'Bootstrap'},
+
+    {
+      id: 9,
       icon: SiMui,
       name: 'Material Ui',
     },
     {
-      id: 8,
+      id: 10,
       icon: BsGit,
       name: 'Git',
     },
-    {id: 10, icon: BiLogoFigma, name: 'Figma'},
+    {id: 11, icon: BiLogoFigma, name: 'Figma'},
   ]
   return (
     <Container>
