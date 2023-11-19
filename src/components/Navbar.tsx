@@ -43,7 +43,6 @@ const Navbar: React.FC = () => {
         <NavbarItem>
           <Link href="#work">Projcects</Link>
         </NavbarItem>
-        <NavbarItem>Contact</NavbarItem>
       </NavbarList>
     </Container>
   )
