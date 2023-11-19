@@ -8,6 +8,7 @@ import umbraco from '../assets/images/umbracoLogo.png'
 const Container = styled.div`
   font-family: Barlow;
   margin-bottom: 3rem;
+  margin-top: 3rem;
   display: flex;
 `
 
@@ -22,9 +23,6 @@ const CertificateItem = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 2rem;
-  /* border: 1px rgb(55, 52, 47) solid;
-  border-radius: 5px;
-  background-color: rgba(55, 52, 47, 0.1); */
   box-shadow: 0px 2px 22px -3px rgba(158, 158, 158, 1);
   -webkit-box-shadow: 0px 2px 22px -3px rgba(158, 158, 158, 1);
   -moz-box-shadow: 0px 2px 22px -3px rgba(158, 158, 158, 1);

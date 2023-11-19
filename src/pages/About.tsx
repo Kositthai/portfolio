@@ -1,14 +1,14 @@
 import styled from 'styled-components'
-import glassesWoman from '../assets/images/myself.png'
-import Bike from '../assets/images/bicycle (2).png'
-import gsap from 'gsap'
 import {useEffect, useRef} from 'react'
-import Stone from '../assets/images/stone.png'
-import Hyf from '../assets/images/hyf-logo.svg'
-import Rock from '../assets/images/stone.png'
-import Walor from '../assets/images/walor-logo.svg'
+import mySelf from '../assets/images/IMG_1500-blur-removebg-preview.png'
+import bike from '../assets/images/bicycle.png'
+import stone from '../assets/images/stone.png'
+import hyf from '../assets/images/hyf-logo.svg'
+import rock from '../assets/images/stone.png'
+import walor from '../assets/images/walor-logo.svg'
 import Skills from '../components/Skills'
 import Certificate from '../components/Certificate'
+import {experienceAnimation} from '../animations/experienceAnimation'
 
 const Container = styled.div`
   height: 100vh;
@@ -29,9 +29,9 @@ const Wrapper = styled.div`
 
 const Frame = styled.div`
   border-radius: 50%;
-  width: 20rem;
+  width: 22rem;
   border: none;
-  margin: auto 0 auto 3rem;
+  margin: 1.5rem 0 auto 3rem;
   background: #ff91004f;
   overflow: hidden;
 `
@@ -127,30 +127,13 @@ const CV: React.FC = () => {
   const myRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      defaults: {
-        ease: 'power2.out', // Default ease for all tweens
-      },
-      repeat: 1,
-    })
-
-    tl.to('.bike', {x: '200%', duration: 2, ease: 'bounce'})
-      .to('.experience', {opacity: 0, duration: 3, x: '-10%'})
-      .to('.hyf', {opacity: 1, y: '45%', duration: 2, ease: 'back.out'})
-      .to('.hyf-message', {y: '500%', opacity: 1, duration: 2}, '<')
-      .to('.hyf-message, .hyf', {opacity: 0})
-      .to('.bike', {x: '580%', duration: 2})
-      .to('.walor', {y: '45%', opacity: 1, duration: 2, ease: 'back.out'})
-      .to('.walor-message', {y: '42%', opacity: 1, duration: 2}, '<')
-      .to('.walor-message, .walor', {opacity: 0, duration: 1})
-      .to('.bike', {x: '1000%', duration: 2})
-      .to('.rock, .stone', {opacity: 0, duration: 2})
+    const {restartExperienceAnimation} = experienceAnimation()
 
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0]
 
       if (entry.isIntersecting) {
-        tl.restart()
+        restartExperienceAnimation()
       }
     })
 
@@ -165,7 +148,7 @@ const CV: React.FC = () => {
       <Wrapper>
         <ResumeContainer>
           <Frame>
-            <Image src={glassesWoman} style={{width: '15rem'}} />
+            <Image src={mySelf} style={{width: '15rem'}} />
           </Frame>
           <IntroduceMessage>
             <p className="first-paragraph">
@@ -178,11 +161,10 @@ const CV: React.FC = () => {
             </p>
 
             <p className="third-paragraph">
-              Our team at Walor is small but tightly-knit, working closely
-              together and sharing innovative ideas. In my role as a{' '}
-              <strong>front-end developer</strong>, I am responsible for
-              implementing and updating features to enhance the user interface,
-              with a focus on optimizing the overall user experience.
+              In my role as a <strong>front-end developer</strong>, I am
+              responsible for implementing and updating features to enhance the
+              user interface, with a focus on optimizing the overall user
+              experience.
             </p>
           </IntroduceMessage>
         </ResumeContainer>
@@ -192,11 +174,11 @@ const CV: React.FC = () => {
 
         <div ref={myRef}>
           <Experience className="experience">Experience</Experience>
-          <StlyedBike src={Bike} className="bike" />
-          <StyledStone src={Stone} className="stone" />
-          <StyledRock src={Rock} className="rock" />
-          <StyledWalor src={Walor} className="walor" />
-          <StyledHyf src={Hyf} className="hyf" />
+          <StlyedBike src={bike} className="bike" />
+          <StyledStone src={stone} className="stone" />
+          <StyledRock src={rock} className="rock" />
+          <StyledWalor src={walor} className="walor" />
+          <StyledHyf src={hyf} className="hyf" />
         </div>
       </Wrapper>
       <StyledHyfMessage className="hyf-message">2022</StyledHyfMessage>

@@ -1,26 +1,11 @@
 import styled from 'styled-components'
-import projectInitialImg from '../assets/images/butterflyGif.gif'
-import gsap from 'gsap'
-import MotionPathPlugin from 'gsap/MotionPathPlugin'
 import {useEffect, useRef} from 'react'
-import {SplitText} from 'gsap-trial/all'
-import mealShairing from '../assets/images/mealSharing.png'
-import cinemania from '../assets/images/cinemania.png'
-import figma from '../assets/images/convertFigma.png'
+import projectInitialImg from '../assets/images/butterflyGif.gif'
 import {useState} from 'react'
-import eye from '../assets/images/imgonline-com-ua-resize-WnBqqFROiKQBzh-removebg-preview (1).png'
-import {
-  BiLogoReact,
-  BiLogoTypescript,
-  BiLogoJavascript,
-  BiLogoHtml5,
-  BiLogoCss3,
-  BiLogoFigma,
-  BiLogoBootstrap,
-  BiLogoNodejs,
-} from 'react-icons/bi'
-import {SiMui, SiMysql, SiJira} from 'react-icons/si'
-import {BsGit} from 'react-icons/bs'
+import eye from '../assets/images/eye.png'
+import {projectTextAnimation} from '../animations/projectTextAnimation'
+import {butterflyAnimation} from '../animations/butterflyAnimation'
+import projectsInfo from '../data/projectInfo'
 
 const Container = styled.div`
   width: 100%;
@@ -36,10 +21,13 @@ const Butterfly = styled.img`
   width: 4rem;
 `
 
-const Projects = styled.h1`
+const ProjectContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: -5rem;
+  margin-top: 10rem;
+`
+
+const Projects = styled.h1`
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   letter-spacing: 1.5rem;
   font-size: 5.5rem;
@@ -81,6 +69,7 @@ const ProjectDetail = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `
 
 const ProjectDescription = styled.p`
@@ -99,6 +88,7 @@ const StyledButton = styled.button`
   margin: 1rem;
   border: none;
   color: white;
+  margin-top: auto;
 
   :hover {
     cursor: url(${eye}), pointer;
@@ -115,6 +105,10 @@ const StyledIcon = styled.div`
   margin: 1rem;
 `
 
+const ProjectButtonContainer = styled.div`
+  margin-top: auto;
+`
+
 type ProjectType = {
   id: number
   image: string
@@ -123,50 +117,21 @@ type ProjectType = {
   live: string
 }
 
-gsap.registerPlugin(MotionPathPlugin)
-gsap.registerPlugin(SplitText)
-
-function Project() {
+const Project: React.FC = () => {
   const myRef = useRef(null)
 
+  const projectsText = 'PROJECTS'.split('')
+
   useEffect(() => {
-    const butterflyAnimation = gsap.timeline({paused: true})
-
-    butterflyAnimation.to('.butterfly', {
-      duration: 7,
-      delay: 5,
-      motionPath: [
-        {x: 0, y: 0},
-        {x: -500, y: 200},
-        {x: -1100, y: 50},
-      ],
-      opacity: 0,
-      ease: 'power1.inOut',
-    })
-
-    const text = new SplitText('#projects', {
-      type: 'chars',
-      charsClass: 'text-animation',
-    })
-
-    const projectAnimation = gsap.timeline()
-
-    projectAnimation.fromTo(
-      text.chars,
-      {
-        autoAlpha: 0,
-        duration: 0.5,
-        stagger: 0.5,
-      },
-      {autoAlpha: 1, duration: 0.5, stagger: 0.5, y: 50}
-    )
+    const {restartProjectTextAnimation} = projectTextAnimation()
+    const {restartButterflyAnimation} = butterflyAnimation()
 
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0]
 
       if (entry.isIntersecting) {
-        butterflyAnimation.restart()
-        projectAnimation.play()
+        restartProjectTextAnimation()
+        restartButterflyAnimation()
       }
     })
 
@@ -177,43 +142,6 @@ function Project() {
   }, [myRef])
 
   const [idNumber, setIdNumber] = useState<number[]>([])
-
-  const projectsObj = [
-    {
-      id: 1,
-      image: figma,
-      descrition:
-        'This is my first HTML and CSS project, which I created during self-study. I converted a design from Figma into a static web.',
-      source: 'https://github.com/Kositthai/Figma-To-Web',
-      live: 'https://duplicating-project-figma.vercel.app/',
-      tool: [BiLogoHtml5, BiLogoCss3, BiLogoFigma],
-    },
-    {
-      id: 2,
-      image: mealShairing,
-      descrition:
-        'A full-stack application equipped with features for making reservations and leaving reviews, along with additional capabilities for sorting and creation date.',
-      source: 'https://github.com/Kositthai/Meal-Sharing-App',
-      live: 'https://meal-sharing-app-production.up.railway.app/',
-      tool: [BiLogoReact, BiLogoJavascript, BiLogoNodejs, SiMysql],
-    },
-    {
-      id: 3,
-      image: cinemania,
-      descrition:
-        'Collaborative group project undertaken with my classmates at HackYourFuture Bootcamp. The application includes functionality to add favorite movies to a personal list, a shopping cart feature, and incorporates sorting and search capabilities.',
-      source: 'https://github.com/HackYourFuture-CPH/CINEMANIA',
-      live: 'https://cinemania.fly.dev/',
-      tool: [
-        BiLogoReact,
-        BiLogoJavascript,
-        BiLogoNodejs,
-        SiMysql,
-        SiMui,
-        SiJira,
-      ],
-    },
-  ]
 
   const handleOnClick = (project: ProjectType) => {
     setIdNumber((prevIds) => {
@@ -228,24 +156,30 @@ function Project() {
   return (
     <Container id="work">
       <AnimationContainer>
-        <Projects id="projects">PROJECTS</Projects>
+        <ProjectContainer>
+          {projectsText.map((character) => {
+            return <Projects className="projects">{character}</Projects>
+          })}
+        </ProjectContainer>
+
         <Butterfly src={projectInitialImg} className="butterfly" ref={myRef} />
       </AnimationContainer>
       <Box>
-        {projectsObj.map((project, key) => {
+        {projectsInfo.map((project, key) => {
           return idNumber.includes(project.id) ? (
             <ProjectDetail
               onClick={() => handleOnClick(project)}
               key={project.id}
             >
-              <div>
-                <ProjectDescription>{project.descrition}</ProjectDescription>
-                <StyledIcon>
-                  {project.tool.map((item) => {
-                    const IconComponent = item
-                    return <IconComponent style={{margin: '0 1rem'}} />
-                  })}
-                </StyledIcon>
+              <ProjectDescription>{project.descrition}</ProjectDescription>
+              <StyledIcon>
+                {project.tool.map((item) => {
+                  const IconComponent = item
+                  return <IconComponent style={{margin: '0 1rem'}} />
+                })}
+              </StyledIcon>
+
+              <ProjectButtonContainer>
                 <StyledButton>
                   <Link href={project.source}>Source</Link>
                 </StyledButton>
@@ -254,7 +188,7 @@ function Project() {
                     Live
                   </Link>
                 </StyledButton>
-              </div>
+              </ProjectButtonContainer>
             </ProjectDetail>
           ) : (
             <ProjectItem

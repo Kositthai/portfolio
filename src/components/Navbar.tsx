@@ -32,7 +32,7 @@ const Link = styled.a`
   color: #37342f;
 `
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
     <Container>
       <Logo>VK</Logo>
