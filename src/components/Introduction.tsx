@@ -13,13 +13,26 @@ const Container = styled.div`
   }
   div {
     margin-bottom: 4rem;
+
+    @media (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
   }
 `
 const Title = styled.h1`
   margin: 3rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
 `
 
-const SubTitle = styled.h2``
+const SubTitle = styled.h2`
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`
 
 gsap.registerPlugin(TextPlugin) // Register the TextPlugin
 

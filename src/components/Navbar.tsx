@@ -5,6 +5,10 @@ const Container = styled.div`
   align-items: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding: 3rem 7rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `
 const Logo = styled.div`
   font-size: 2rem;
@@ -41,7 +45,7 @@ const Navbar: React.FC = () => {
       </NavbarItem>
       <NavbarList>
         <NavbarItem>
-          <Link href="#work">Projcects</Link>
+          <Link href="#work">Projects</Link>
         </NavbarItem>
       </NavbarList>
     </Container>

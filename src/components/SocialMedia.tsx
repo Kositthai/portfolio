@@ -8,9 +8,14 @@ const Container = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-between;
-  margin: 0;
+  margin: 5rem 0 0 0;
   width: 15rem;
-  margin-top: 5rem;
+
+  @media (max-width: 768px) {
+    width: 10rem;
+    margin-top: 0;
+    margin: auto;
+  }
 `
 
 const SocialMediaItem = styled.li`
@@ -25,6 +30,11 @@ const SocialMediaIcon = styled.i`
   border-radius: 60px;
   box-shadow: 0 0 2px #888;
   padding: 0.5em 0.5em;
+
+  @media (max-width: 768px) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `
 
 const SocialMediaLink = styled.a`

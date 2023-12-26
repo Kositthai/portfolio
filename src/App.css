@@ -19,6 +19,22 @@ body {
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 1279px) {
+    /* Reset or override styles for screens with max-width 1280px  */
+    position: static;
+    overflow-y: initial;
+    overscroll-behavior-y: auto;
+    scroll-snap-type: none;
+    height: auto;
+    width: auto;
+
+    -ms-overflow-style: auto;
+    scrollbar-width: auto;
+    &::-webkit-scrollbar {
+      display: auto;
+    }
+  }
 }
 
 .slide {

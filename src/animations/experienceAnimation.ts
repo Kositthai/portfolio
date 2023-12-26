@@ -8,18 +8,41 @@ export const experienceAnimation = () => {
     repeat: 1,
   })
 
+  const bike = '.bike'
+  const experience = '.experience'
+  const hyf = '.hyf'
+  const hyfMessage = '.hyf-message'
+  const walor = '.walor'
+  const walorMessage = '.walor-message'
+  const screenWidth = window.innerWidth
+
   experienceTimeLine
-    .to('.bike', {x: '200%', duration: 2, ease: 'bounce'})
-    .to('.experience', {opacity: 0, duration: 3, x: '-10%'})
-    .to('.hyf', {opacity: 1, y: '45%', duration: 2, ease: 'back.out'})
-    .to('.hyf-message', {y: '500%', opacity: 1, duration: 2}, '<')
-    .to('.hyf-message, .hyf', {opacity: 0})
-    .to('.bike', {x: '580%', duration: 2})
-    .to('.walor', {y: '45%', opacity: 1, duration: 2, ease: 'back.out'})
-    .to('.walor-message', {y: '42%', opacity: 1, duration: 2}, '<')
-    .to('.walor-message, .walor', {opacity: 0, duration: 1})
-    .to('.bike', {x: '1000%', duration: 2})
-    .to('.rock, .stone', {opacity: 0, duration: 2})
+    .to(bike, {x: screenWidth / 5, duration: 2, ease: 'bounce'})
+    .to(experience, {opacity: 0, duration: 3, x: '-10%'})
+    .to(hyf, {
+      opacity: 1,
+      y: '-45%',
+      duration: 2,
+      ease: 'back.out',
+    })
+    .to(hyf, {
+      opacity: 0,
+      ease: 'back.out',
+    })
+    .to(hyfMessage, {y: '-45%', opacity: 1, duration: 2}, '<')
+    .to(hyfMessage, {
+      opacity: 0,
+      ease: 'back.out',
+    })
+    .to(bike, {x: screenWidth / 2, duration: 2, ease: 'bounce'})
+    .to(walor, {y: '45%', opacity: 1, duration: 2, ease: 'back.out'})
+    .to(walor, {
+      opacity: 0,
+      ease: 'back.out',
+    })
+    .to(walorMessage, {y: '45%', opacity: 1, duration: 2}, '<')
+    .to(walorMessage, {opacity: 0, ease: 'back.out'})
+    .to(bike, {x: screenWidth, duration: 3})
 
   const restartExperienceAnimation = () => {
     experienceTimeLine.restart()
@@ -27,3 +50,5 @@ export const experienceAnimation = () => {
 
   return {timeline: experienceTimeLine, restartExperienceAnimation}
 }
+// // .to(stone, {opacity: 0, duration: 1, ease: 'back.out'})
+// // .to(rock, {opacity: 0, duration: 1, ease: 'back.out'})
