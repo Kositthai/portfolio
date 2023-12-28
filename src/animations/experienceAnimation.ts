@@ -50,5 +50,3 @@ export const experienceAnimation = () => {
 
   return {timeline: experienceTimeLine, restartExperienceAnimation}
 }
-// // .to(stone, {opacity: 0, duration: 1, ease: 'back.out'})
-// // .to(rock, {opacity: 0, duration: 1, ease: 'back.out'})

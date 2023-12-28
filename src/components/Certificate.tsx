@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import {LiaCertificateSolid} from 'react-icons/lia'
 import hackerRank from '../assets/images/hackerrank_logo.png'
 import jira from '../assets/images/horizontal-logo-gradient-blue-atlassian.png'
@@ -52,14 +52,14 @@ const CertificateItem = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 1rem;
-  box-shadow: 0px 2px 22px -3px rgba(158, 158, 158, 1);
-  -webkit-box-shadow: 0px 2px 22px -3px rgba(158, 158, 158, 1);
-  -moz-box-shadow: 0px 2px 22px -3px rgba(158, 158, 158, 1);
+  box-shadow: 0px 2px 22px -3px ${({theme}) => theme.gray};
+  -webkit-box-shadow: 0px 2px 22px -3px ${({theme}) => theme.gray};
+  -moz-box-shadow: 0px 2px 22px -3px ${({theme}) => theme.gray};
 
   @media (max-width: 1279px) {
     margin: 0rem;
     box-shadow: none;
-    border-right: 1px lightgray solid;
+    border-right: 1px solid ${({theme}) => theme.lightGray};
   }
 `
 
@@ -80,12 +80,13 @@ const CertificateLink = styled.a`
 
 const Logo = styled.img`
   margin: auto auto;
+  max-width: 60%;
 `
 
 const Detail = styled.div`
   margin: 1rem;
   font-weight: 700;
-  color: #37342f;
+  color: ${({theme}) => theme.primary};
 
   @media (max-width: 1280px) {
     font-size: 0.8rem;
@@ -112,7 +113,7 @@ const Cerificate: React.FC = () => {
       <CertificateContainer>
         <CertificateItem>
           <CertificateLink href="https://imgur.com/a/65Cpu64" target="_blank">
-            <Logo src={umbraco} alt="" style={{maxWidth: '60%'}} />
+            <Logo src={umbraco} alt="" />
             <Detail>
               <StyledDetail>Umbraco | Aug 2023</StyledDetail>
               <StyledDetail>Umbraco Professional</StyledDetail>
@@ -125,7 +126,7 @@ const Cerificate: React.FC = () => {
             href="https://university.atlassian.com/student/award/eNRu6njEhPTuPzapbxoT88Uv"
             target="_blank"
           >
-            <Logo src={jira} alt="" style={{maxWidth: '60%'}} />
+            <Logo src={jira} alt="" />
             <Detail>
               <StyledDetail>Atlassian | July 2023</StyledDetail>
               <StyledDetail>Jira Fundamentals</StyledDetail>
@@ -138,7 +139,7 @@ const Cerificate: React.FC = () => {
             href="https://www.hackerrank.com/certificates/0978b834a191"
             target="_blank"
           >
-            <Logo src={hackerRank} alt="" style={{maxWidth: '60%'}} />
+            <Logo src={hackerRank} alt="" />
             <Detail>
               <StyledDetail>HackerRank | May 2023</StyledDetail>
               <StyledDetail>React</StyledDetail>

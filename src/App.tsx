@@ -1,6 +1,6 @@
 import './App.css'
 import Frontpage from './pages/Frontpage'
-import About from './pages/About'
+import AboutMe from './pages/AboutMe'
 import Projects from './pages/Projects'
 
 function App() {
@@ -10,11 +10,11 @@ function App() {
         <Frontpage />
       </div>
       <div className="slide">
-        <About />
+        <AboutMe />
       </div>
-      {/* <div className="slide">
+      <div className="slide">
         <Projects />
-      </div> */}
+      </div>
     </div>
   )
 }

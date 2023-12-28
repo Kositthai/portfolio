@@ -5,14 +5,15 @@ gsap.registerPlugin(MotionPathPlugin)
 
 export const butterflyAnimation = () => {
   const butterflyTimeLine = gsap.timeline({paused: true})
+  const screenWidth = window.innerWidth
+  const screenHeight = window.innerHeight
 
   butterflyTimeLine.to('.butterfly', {
-    duration: 7,
+    duration: 5,
     delay: 5,
     motionPath: [
-      {x: 0, y: 0},
-      {x: -500, y: 200},
-      {x: -1100, y: 50},
+      {x: screenWidth / 4, y: screenHeight / 4},
+      {x: screenWidth, y: screenHeight / 2},
     ],
     opacity: 0,
     ease: 'power1.inOut',

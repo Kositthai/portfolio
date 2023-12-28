@@ -11,7 +11,8 @@ import ExperienceBar from '../components/ExperienceBar'
 
 const Container = styled.div`
   width: 100%;
-  font-family: Barlow;
+  font-family: Barlow, 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+    sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +22,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 80%;
   height: auto;
-  border: 3px solid #37342f;
+  border: 3px solid ${({theme}) => theme.primary};
   border-radius: 5px;
   position: relative;
   margin: 5rem 0;
@@ -43,7 +44,7 @@ const Frame = styled.div`
   width: 15rem;
   border: none;
   margin: auto 2rem;
-  background: #ff91004f;
+  background: ${({theme}) => theme.orange};
   overflow: hidden;
 
   @media (max-width: 1024px) {
@@ -66,7 +67,7 @@ const Image = styled.img`
 
 const IntroduceMessage = styled.div`
   width: fit-content;
-  border: 2px solid #37342f;
+  border: 2px solid ${({theme}) => theme.primary};
   border-radius: 1rem;
   margin: 3rem 3rem 3rem 0;
   font-size: 1.2rem;
@@ -114,7 +115,7 @@ const StyledHyf = styled.img`
 `
 
 const StyledHyfMessage = styled.p`
-  color: #37342f;
+  color: ${({theme}) => theme.primary};
   font-weight: 600;
   position: absolute;
   left: 28%;
@@ -129,10 +130,9 @@ const StyledWalor = styled.img`
 `
 
 const StyledWalorMessage = styled.p`
-  color: #37342f;
+  color: ${({theme}) => theme.primary};
   font-weight: 600;
   position: absolute;
-
   left: 65%;
   opacity: 0;
 `
@@ -156,7 +156,22 @@ const ExperienceTitle = styled.h2`
   margin: 1rem;
 `
 
-const CV: React.FC = () => {
+const StyledImage = styled.img`
+  width: 20%;
+  float: left;
+`
+
+const ExperienceContent = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const AnimationContainer = styled.div`
+  position: relative;
+  width: 100%;
+`
+
+const AboutMe: React.FC = () => {
   const myRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -185,7 +200,7 @@ const CV: React.FC = () => {
           </Frame>
           <IntroduceMessage>
             {window.matchMedia('(max-width: 1024px)').matches && (
-              <img src={mySelf} style={{width: '20%', float: 'left'}} />
+              <StyledImage src={mySelf} />
             )}
 
             <div>
@@ -213,20 +228,13 @@ const CV: React.FC = () => {
         {window.matchMedia('(max-width: 1279px)').matches ? (
           <ExperienceContainer>
             <ExperienceTitle>Experiences</ExperienceTitle>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <ExperienceContent>
               <ExperienceBar />
-            </div>
+            </ExperienceContent>
           </ExperienceContainer>
         ) : (
-          <div
-            ref={myRef}
-            style={{
-              position: 'relative',
-              width: '100%',
-            }}
-          >
-            <Experience className="experience">Experience</Experience>
-
+          <AnimationContainer ref={myRef}>
+            <Experience className="experience">Experiences</Experience>
             <StlyedBike src={bike} className="bike" />
             <StyledHyf src={hyf} className="hyf" />
             <StyledWalor src={walor} className="walor" />
@@ -234,11 +242,11 @@ const CV: React.FC = () => {
             <StyledWalorMessage className="walor-message">
               2023
             </StyledWalorMessage>
-          </div>
+          </AnimationContainer>
         )}
       </Wrapper>
     </Container>
   )
 }
 
-export default CV
+export default AboutMe

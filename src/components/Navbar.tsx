@@ -6,14 +6,18 @@ const Container = styled.div`
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding: 3rem 7rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 1rem;
+  }
+
+  :hover {
+    text-decoration: underline;
   }
 `
 const Logo = styled.div`
   font-size: 2rem;
-  color: white;
-  background: black;
+  color: ${({theme}) => theme.white};
+  background: ${({theme}) => theme.primary};
   width: 3rem;
   height: 2rem;
   display: flex;
@@ -21,19 +25,19 @@ const Logo = styled.div`
   align-items: center;
 `
 
-const NavbarList = styled.ul`
-  list-style: none;
-  display: flex;
-`
-
 const NavbarItem = styled.li`
   margin: 0 2rem;
   list-style: none;
 `
 
+const NavbarList = styled.ul`
+  list-style: none;
+  display: flex;
+`
+
 const Link = styled.a`
   text-decoration: none;
-  color: #37342f;
+  color: ${({theme}) => theme.primary};
 `
 
 const Navbar: React.FC = () => {
@@ -41,7 +45,7 @@ const Navbar: React.FC = () => {
     <Container>
       <Logo>VK</Logo>
       <NavbarItem>
-        <Link href="#about">About</Link>
+        <Link href="#about">About me</Link>
       </NavbarItem>
       <NavbarList>
         <NavbarItem>

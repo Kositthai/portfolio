@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import programmingImage from '../assets/images/programmer-woman.png'
 
@@ -14,6 +13,11 @@ const Container = styled.div`
 const Image = styled.img`
   width: 35rem;
   height: 35rem;
+
+  @media (max-width: 1279px) {
+    width: 25rem;
+    height: 25rem;
+  }
 
   @media (max-width: 768px) {
     width: 70%;

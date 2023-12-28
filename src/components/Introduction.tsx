@@ -2,25 +2,36 @@ import styled from 'styled-components'
 import gsap from 'gsap'
 import {useRef, useEffect, useState} from 'react'
 import SocialMedia from './SocialMedia'
-
 import TextPlugin from 'gsap/TextPlugin'
 
 const Container = styled.div`
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: ${({theme}) => theme.primary};
 
   * {
     font-family: Yeseva;
   }
-  div {
-    margin-bottom: 4rem;
 
+  div {
     @media (max-width: 768px) {
       margin-bottom: 1rem;
     }
   }
+
+  @media (max-width: 768px) {
+    order: 2;
+  }
 `
 const Title = styled.h1`
   margin: 3rem 0;
+  font-size: 2.3rem;
+
+  @media (max-width: 1279px) {
+    font-size: 1.5rem;
+  }
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -28,7 +39,13 @@ const Title = styled.h1`
   }
 `
 
-const SubTitle = styled.h2`
+const Subtitle = styled.h2`
+  font-size: 2rem;
+
+  @media (max-width: 1279px) {
+    font-size: 1.2rem;
+  }
+
   @media (max-width: 768px) {
     font-size: 1rem;
   }
@@ -65,11 +82,12 @@ const Introduction: React.FC = () => {
     <Container>
       <div>
         <Title id="myText" ref={nameRef}></Title>
-        <SubTitle id="role" ref={roleRef}></SubTitle>
+        <Subtitle id="role" ref={roleRef}></Subtitle>
+
+        <SocialMedia
+          introductionAnimationCompleted={introductionAnimationCompleted}
+        />
       </div>
-      <SocialMedia
-        introductionAnimationCompleted={introductionAnimationCompleted}
-      />
     </Container>
   )
 }

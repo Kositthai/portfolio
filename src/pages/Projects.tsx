@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import projectInitialImg from '../assets/images/butterflyGif.gif'
-import {useState} from 'react'
 import eye from '../assets/images/eye.png'
 import {projectTextAnimation} from '../animations/projectTextAnimation'
 import {butterflyAnimation} from '../animations/butterflyAnimation'
@@ -12,26 +11,59 @@ const Container = styled.div`
   height: 100%;
   position: relative;
   font-family: Barlow;
-  margin-top: 2rem;
 `
+
 const Butterfly = styled.img`
   position: absolute;
-  top: 4rem;
-  left: 56rem;
+  top: 60%;
+  left: 46.5%;
   width: 4rem;
+
+  @media (max-width: 1440px) {
+    left: 45.5%;
+  }
+
+  @media (max-width: 1279px) {
+    top: 130%;
+    width: 3rem;
+  }
+
+  @media (max-width: 1024px) {
+    left: 44.5%;
+  }
+
+  @media (max-width: 768px) {
+    left: 42.5%;
+  }
+
+  @media (max-width: 630px) {
+    left: 41.5%;
+  }
+
+  @media (max-width: 530px) {
+    top: 240%;
+    width: 2rem;
+  }
 `
 
 const ProjectContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 10rem;
 `
 
 const Projects = styled.h1`
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   letter-spacing: 1.5rem;
   font-size: 5.5rem;
-  color: #37342f;
+  color: ${({theme}) => theme.primary};
+
+  @media (max-width: 1279px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 530px) {
+    font-size: 2rem;
+  }
 `
 
 const AnimationContainer = styled.div`
@@ -43,6 +75,20 @@ const Box = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   margin: 15rem 7rem;
+  position: relative;
+
+  @media (max-width: 1279px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 1024px) {
+    margin: 15rem 2rem;
+  }
+
+  @media (max-width: 630px) {
+    grid-template-columns: 1fr;
+    margin: 10rem 2rem;
+  }
 `
 
 const ProjectItem = styled.div`
@@ -60,11 +106,11 @@ const ProjectImage = styled.img`
 `
 
 const ProjectDetail = styled.div`
-  background: #37342f;
+  background: ${({theme}) => theme.primary};
   width: 100%;
   height: 20rem;
   border-radius: 10px;
-  color: white;
+  color: ${({theme}) => theme.white};
   text-align: center;
   display: flex;
   justify-content: center;
@@ -73,36 +119,66 @@ const ProjectDetail = styled.div`
 `
 
 const ProjectDescription = styled.p`
-  width: 70%;
+  width: 90%;
   text-align: center;
   margin: 1rem auto;
   font-size: 1rem;
   line-height: 2rem;
+
+  @media (max-width: 1536px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 630px) {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin: 1rem auto;
+    width: 80%;
+  }
+
+  @media (max-width: 414px) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 1rem auto;
+    width: 80%;
+  }
 `
 
 const StyledButton = styled.button`
   border: 1px solid white;
-  background: #ca8a8b;
+  background: ${({theme}) => theme.rose};
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
   margin: 1rem;
   border: none;
-  color: white;
+  color: ${({theme}) => theme.white};
   margin-top: auto;
 
   :hover {
     cursor: url(${eye}), pointer;
   }
+
+  @media (max-width: 630px) {
+    padding: 0.5rem 1rem;
+  }
 `
 
 const Link = styled.a`
   text-decoration: none;
-  color: white;
+  color: ${({theme}) => theme.white};
 `
 
 const StyledIcon = styled.div`
   font-size: 2rem;
-  margin: 1rem;
+  margin: 0.5rem 0;
+
+  @media (max-width: 1536px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 414px) {
+    font-size: 1rem;
+  }
 `
 
 const ProjectButtonContainer = styled.div`
@@ -118,7 +194,7 @@ type ProjectType = {
 }
 
 const Project: React.FC = () => {
-  const myRef = useRef(null)
+  const butterflyRef = useRef(null)
 
   const projectsText = 'PROJECTS'.split('')
 
@@ -136,10 +212,10 @@ const Project: React.FC = () => {
     })
 
     // Observe the element
-    if (myRef.current) {
-      observer.observe(myRef.current)
+    if (butterflyRef.current) {
+      observer.observe(butterflyRef.current)
     }
-  }, [myRef])
+  }, [butterflyRef])
 
   const [idNumber, setIdNumber] = useState<number[]>([])
 
@@ -162,10 +238,15 @@ const Project: React.FC = () => {
           })}
         </ProjectContainer>
 
-        <Butterfly src={projectInitialImg} className="butterfly" ref={myRef} />
+        <Butterfly
+          src={projectInitialImg}
+          className="butterfly"
+          ref={butterflyRef}
+        />
       </AnimationContainer>
+
       <Box>
-        {projectsInfo.map((project, key) => {
+        {projectsInfo.map((project) => {
           return idNumber.includes(project.id) ? (
             <ProjectDetail
               onClick={() => handleOnClick(project)}
@@ -175,7 +256,7 @@ const Project: React.FC = () => {
               <StyledIcon>
                 {project.tool.map((item) => {
                   const IconComponent = item
-                  return <IconComponent style={{margin: '0 1rem'}} />
+                  return <IconComponent style={{margin: '0 .5rem'}} />
                 })}
               </StyledIcon>
 

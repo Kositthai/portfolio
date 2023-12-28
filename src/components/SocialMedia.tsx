@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import gsap from 'gsap'
 import {useEffect} from 'react'
-import {FaLinkedin, FaGithub} from 'react-icons/fa'
-import {HiOutlineMail} from 'react-icons/hi'
+import socialMediaList from '../data/socialMediaList'
 
 const Container = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-between;
-  margin: 5rem 0 0 0;
+  margin: 2rem 0 0 0;
   width: 15rem;
 
   @media (max-width: 768px) {
@@ -28,7 +27,7 @@ const SocialMediaIcon = styled.i`
   height: 2rem;
   display: inline-block;
   border-radius: 60px;
-  box-shadow: 0 0 2px #888;
+  box-shadow: 0 0 2px ${({theme}) => theme.gray};
   padding: 0.5em 0.5em;
 
   @media (max-width: 768px) {
@@ -39,7 +38,7 @@ const SocialMediaIcon = styled.i`
 
 const SocialMediaLink = styled.a`
   text-decoration: none;
-  color: black;
+  color: ${({theme}) => theme.primary};
 `
 
 interface SocialMediaProps {
@@ -49,21 +48,6 @@ interface SocialMediaProps {
 const SocialMedia: React.FC<SocialMediaProps> = ({
   introductionAnimationCompleted,
 }) => {
-  const socialMediaList = [
-    {
-      icon: HiOutlineMail,
-      link: 'mailto:vkositthai@outlook.com',
-    },
-    {
-      icon: FaLinkedin,
-      link: 'https://www.linkedin.com/in/vipavee-kositthai/',
-    },
-    {
-      icon: FaGithub,
-      link: 'https://github.com/Kositthai',
-    },
-  ]
-
   useEffect(() => {
     if (introductionAnimationCompleted) {
       gsap.to('.media', {

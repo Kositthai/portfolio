@@ -21,7 +21,7 @@ body {
   }
 
   @media (max-width: 1279px) {
-    /* Reset or override styles for screens with max-width 1280px  */
+    /* Reset or override styles for screens with max-width 1279px  */
     position: static;
     overflow-y: initial;
     overscroll-behavior-y: auto;
@@ -33,6 +33,11 @@ body {
     scrollbar-width: auto;
     &::-webkit-scrollbar {
       display: auto;
+    }
+
+    .slide {
+      height: auto;
+      scroll-snap-align: none;
     }
   }
 }

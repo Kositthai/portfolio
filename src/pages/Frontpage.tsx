@@ -13,8 +13,13 @@ const Content = styled.div`
     flex: 1 1 0px;
   }
 
+  @media (max-width: 1279px) {
+    margin: 5rem 1rem 5rem 1rem;
+  }
+
   @media (max-width: 768px) {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: 3rem 0;
     text-align: center;
   }
@@ -25,8 +30,8 @@ const Frontpage: React.FC = () => {
     <Container>
       <Navbar />
       <Content>
-        <ProfileImage />
         <Introduction />
+        <ProfileImage />
       </Content>
     </Container>
   )

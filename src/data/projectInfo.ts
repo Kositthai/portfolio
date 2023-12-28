@@ -6,7 +6,7 @@ import {
   BiLogoFigma,
   BiLogoNodejs,
 } from 'react-icons/bi'
-import {SiMui, SiMysql, SiJira} from 'react-icons/si'
+import {SiMui, SiMysql} from 'react-icons/si'
 import mealShairing from '../assets/images/mealSharing.png'
 import cinemania from '../assets/images/cinemania.png'
 import figma from '../assets/images/convertFigma.png'
@@ -37,7 +37,7 @@ const projectsInfo = [
       'Collaborative group project undertaken with my classmates at HackYourFuture Bootcamp. The application includes functionality to add favorite movies to a personal list, a shopping cart feature, and incorporates sorting and search capabilities.',
     source: 'https://github.com/HackYourFuture-CPH/CINEMANIA',
     live: 'https://cinemania.fly.dev/',
-    tool: [BiLogoReact, BiLogoJavascript, BiLogoNodejs, SiMysql, SiMui, SiJira],
+    tool: [BiLogoReact, BiLogoJavascript, BiLogoNodejs, SiMysql, SiMui],
   },
 ]
 

@@ -1,4 +1,8 @@
-import styled from '@emotion/styled'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  margin: 2rem 2rem;
+`
 
 const StyledCircle = styled.li`
   width: 2em;
@@ -6,25 +10,25 @@ const StyledCircle = styled.li`
   text-align: center;
   line-height: 2em;
   border-radius: 1em;
-  background: #e5b679;
+  background: ${({theme}) => theme.orange};
   margin: 0 6rem;
   display: inline-block;
-  color: white;
+  color: ${({theme}) => theme.white};
   position: relative;
 
-  ::before {
+  &::before {
     content: '';
     position: absolute;
     top: 50%;
-    background: #0c0c0c;
+    background: ${({theme}) => theme.primary};
     width: 12rem;
     height: 0.15rem;
     left: 100%;
     z-index: -1;
   }
 
-  :last-child {
-    ::before {
+  &:last-child {
+    &::before {
       display: none;
     }
   }
@@ -32,7 +36,7 @@ const StyledCircle = styled.li`
   @media (max-width: 900px) {
     margin: 0 5rem;
 
-    ::before {
+    &::before {
       width: 10rem;
     }
   }
@@ -40,7 +44,7 @@ const StyledCircle = styled.li`
   @media (max-width: 800px) {
     margin: 0 4.5rem;
 
-    ::before {
+    &::before {
       width: 9rem;
     }
   }
@@ -50,7 +54,7 @@ const StyledCircle = styled.li`
     height: 1.5rem;
     margin: 0 3rem;
 
-    ::before {
+    &::before {
       width: 6rem;
     }
   }
@@ -58,7 +62,7 @@ const StyledCircle = styled.li`
   @media (max-width: 530px) {
     margin: 0 2rem;
 
-    ::before {
+    &::before {
       width: 4rem;
     }
   }
@@ -80,6 +84,8 @@ const ExperienceItem = styled.div`
   text-align: center;
   font-size: 0.7rem;
   margin: 1rem 0;
+  font-family: 'Barlow';
+  font-weight: 700;
 
   @media (max-width: 800px) {
     font-size: 0.6rem;
@@ -91,23 +97,23 @@ const ExperienceItem = styled.div`
   }
 `
 
-const ExperienceBar = () => {
+const CircleContainer = styled.ul`
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`
+
+const ExperienceBar: React.FC = () => {
   return (
-    <div style={{margin: '2rem 2rem'}}>
-      <ul
-        style={{
-          display: 'flex',
-          position: 'relative',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-        }}
-      >
+    <Container>
+      <CircleContainer>
         <StyledCircle></StyledCircle>
         <StyledCircle></StyledCircle>
         <StyledCircle></StyledCircle>
         <StyledCircle></StyledCircle>
-      </ul>
+      </CircleContainer>
       <ExperienceContent>
         <ExperienceItem>
           <p>2015- 2019</p>
@@ -132,7 +138,7 @@ const ExperienceBar = () => {
           <p>Front-end developer </p>
         </ExperienceItem>
       </ExperienceContent>
-    </div>
+    </Container>
   )
 }
 
