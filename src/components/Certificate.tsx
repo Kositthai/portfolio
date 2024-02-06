@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import {LiaCertificateSolid} from 'react-icons/lia'
-import hackerRank from '../assets/images/hackerrank_logo.png'
-import jira from '../assets/images/horizontal-logo-gradient-blue-atlassian.png'
-import umbraco from '../assets/images/umbracoLogo.png'
+import React from 'react';
+import styled from 'styled-components';
+import { LiaCertificateSolid } from 'react-icons/lia';
+import hackerRank from '../assets/images/hackerrank_logo.png';
+import jira from '../assets/images/horizontal-logo-gradient-blue-atlassian.png';
+import ux from '../assets/images/accenture-7.png';
 
 const Container = styled.div`
   font-family: Barlow;
@@ -14,7 +14,7 @@ const Container = styled.div`
   @media (max-width: 1279px) {
     display: block;
   }
-`
+`;
 
 const StyledCertificate = styled(LiaCertificateSolid)`
   font-size: 3.5rem;
@@ -23,7 +23,7 @@ const StyledCertificate = styled(LiaCertificateSolid)`
   @media (max-width: 1279px) {
     display: none;
   }
-`
+`;
 
 const Title = styled.h2`
   display: none;
@@ -33,7 +33,7 @@ const Title = styled.h2`
     display: block;
     margin: 1rem;
   }
-`
+`;
 
 const CertificateContainer = styled.div`
   display: grid;
@@ -44,7 +44,7 @@ const CertificateContainer = styled.div`
   @media (max-width: 1279px) {
     margin: 0;
   }
-`
+`;
 
 const CertificateItem = styled.div`
   max-width: 25rem;
@@ -52,16 +52,16 @@ const CertificateItem = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 1rem;
-  box-shadow: 0px 2px 22px -3px ${({theme}) => theme.gray};
-  -webkit-box-shadow: 0px 2px 22px -3px ${({theme}) => theme.gray};
-  -moz-box-shadow: 0px 2px 22px -3px ${({theme}) => theme.gray};
+  box-shadow: 0px 2px 22px -3px ${({ theme }) => theme.gray};
+  -webkit-box-shadow: 0px 2px 22px -3px ${({ theme }) => theme.gray};
+  -moz-box-shadow: 0px 2px 22px -3px ${({ theme }) => theme.gray};
 
   @media (max-width: 1279px) {
     margin: 0rem;
     box-shadow: none;
-    border-right: 1px solid ${({theme}) => theme.lightGray};
+    border-right: 1px solid ${({ theme }) => theme.lightGray};
   }
-`
+`;
 
 const CertificateLink = styled.a`
   display: grid;
@@ -76,17 +76,17 @@ const CertificateLink = styled.a`
     height: 100%;
     margin: 0rem;
   }
-`
+`;
 
 const Logo = styled.img`
   margin: auto auto;
   max-width: 60%;
-`
+`;
 
 const Detail = styled.div`
   margin: 1rem;
   font-weight: 700;
-  color: ${({theme}) => theme.primary};
+  color: ${({ theme }) => theme.primary};
 
   @media (max-width: 1280px) {
     font-size: 0.8rem;
@@ -98,11 +98,11 @@ const Detail = styled.div`
     margin-top: auto;
     text-align: center;
   }
-`
+`;
 
 const StyledDetail = styled.p`
   text-align: center;
-`
+`;
 
 const Cerificate: React.FC = () => {
   return (
@@ -112,11 +112,11 @@ const Cerificate: React.FC = () => {
 
       <CertificateContainer>
         <CertificateItem>
-          <CertificateLink href="https://imgur.com/a/65Cpu64" target="_blank">
-            <Logo src={umbraco} alt="" />
+          <CertificateLink href="https://imgur.com/bANO1Ll" target="_blank">
+            <Logo src={ux} alt="" />
             <Detail>
-              <StyledDetail>Umbraco | Aug 2023</StyledDetail>
-              <StyledDetail>Umbraco Professional</StyledDetail>
+              <StyledDetail>Accenture | Feb 2024</StyledDetail>
+              <StyledDetail>Digital skills: User Experience</StyledDetail>
             </Detail>
           </CertificateLink>
         </CertificateItem>
@@ -148,7 +148,7 @@ const Cerificate: React.FC = () => {
         </CertificateItem>
       </CertificateContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default Cerificate
+export default Cerificate;
