@@ -1,22 +1,16 @@
-import './App.css'
-import Frontpage from './pages/Frontpage'
-import AboutMe from './pages/AboutMe'
-import Projects from './pages/Projects'
+import './App.css';
+import Frontpage from './pages/Frontpage';
+import AboutMe from './pages/AboutMe';
+import Projects from './pages/Projects';
 
 function App() {
   return (
     <div className="App">
-      <div className="slide">
-        <Frontpage />
-      </div>
-      <div className="slide">
-        <AboutMe />
-      </div>
-      <div className="slide">
-        <Projects />
-      </div>
+      <Frontpage />
+      <AboutMe />
+      <Projects />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
