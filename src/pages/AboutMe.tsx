@@ -74,7 +74,7 @@ const IntroduceMessage = styled.div`
   padding: 1rem;
   line-height: 1.5;
   position: relative;
-  font-weight: 500;
+  font-weight: 600;
 
   p {
     margin: 0.5rem 0;
@@ -172,6 +172,10 @@ const AnimationContainer = styled.div`
   width: 100%;
 `;
 
+const OrangeText = styled.span`
+  color: orange;
+`;
+
 const AboutMe: React.FC = () => {
   const myRef = useRef<HTMLDivElement>(null);
 
@@ -203,29 +207,24 @@ const AboutMe: React.FC = () => {
             {window.matchMedia('(max-width: 1024px)').matches && (
               <StyledImage src={mySelf} />
             )}
-
             <div>
-              Hello, I'm <strong>Vipavee Kositthai</strong>, with a{' '}
-              <strong>background in Logistics Management</strong>. My journey
-              into coding began during a period of unemployment, where I
-              discovered a new passion. This discovery led me to join the{' '}
-              <strong>Hack Your Future Bootcamp</strong>, an experience that
-              opened up new opportunities, including my current role at{' '}
-              <strong>Walor.</strong>
+              <OrangeText>I am a full-stack developer</OrangeText> with a
+              background in logistics and supply chain management. Curiosity and
+              the desire to learn new things sparked my career transition to
+              development. Learning by doing excites me, and I have learned a
+              lot from mistakes, which has helped me become a better problem
+              solver.
+            </div>
+            <div>
+              This discovery led me to join the{' '}
+              <OrangeText>Hack Your Future Bootcamp</OrangeText>, an experience
+              that opened up new opportunities, including my current role
+              full-stack developer at <OrangeText>Walor.</OrangeText>
               <br></br>
-              As a <strong>front-end developer</strong>, my responsibilities
-              include implementing and updating features to improve the user
-              interface, with a keen focus on enhancing the overall user
-              experience.
-              <br></br>Recently, I've <strong>transitioned</strong> into backend
-              development, working with <strong>PHP and Laravel</strong>. This
-              transition not only <strong>enhances my skills</strong> by
-              combining frontend and backend knowledge but also allows me to
-              tackle projects with a more comprehensive perspective, ensuring
-              <strong>seamless integration and robust functionality</strong>.
-              <br></br>
-              I'm excited to <strong>continue learning</strong> and expanding my
-              skills in new technologies.
+              With my acquired skills and growing passion, I'm eager to take on
+              new challenges and opportunities in my career. I'm open to
+              exploring different avenues and am excited to see where my journey
+              takes me next.
             </div>
           </IntroduceMessage>
         </ResumeContainer>
