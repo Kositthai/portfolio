@@ -7,9 +7,10 @@ import {
   BiLogoFigma,
   BiLogoBootstrap,
   BiLogoNodejs,
-} from 'react-icons/bi'
-import {SiMui, SiMysql} from 'react-icons/si'
-import {BsGit} from 'react-icons/bs'
+  BiLogoPhp,
+} from 'react-icons/bi';
+import { SiMui, SiMysql, SiLaravel } from 'react-icons/si';
+import { BsGit } from 'react-icons/bs';
 
 const skillInfo = [
   {
@@ -37,25 +38,35 @@ const skillInfo = [
     icon: BiLogoCss3,
     name: 'CSS',
   },
-  {id: 6, icon: BiLogoNodejs, name: 'Nodejs'},
+  { id: 6, icon: BiLogoNodejs, name: 'Nodejs' },
   {
     id: 7,
     icon: SiMysql,
     name: 'MySQL',
   },
-  {id: 8, icon: BiLogoBootstrap, name: 'Bootstrap'},
-
+  {
+    id: 8,
+    icon: BiLogoPhp,
+    name: 'PHP',
+  },
   {
     id: 9,
+    icon: SiLaravel,
+    name: 'Laravel',
+  },
+  { id: 10, icon: BiLogoBootstrap, name: 'Bootstrap' },
+
+  {
+    id: 11,
     icon: SiMui,
     name: 'Material Ui',
   },
   {
-    id: 10,
+    id: 12,
     icon: BsGit,
     name: 'Git',
   },
-  {id: 11, icon: BiLogoFigma, name: 'Figma'},
-]
+  { id: 13, icon: BiLogoFigma, name: 'Figma' },
+];
 
-export default skillInfo
+export default skillInfo;

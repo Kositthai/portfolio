@@ -15,10 +15,11 @@ import cinemania from '../assets/images/cinemania.png';
 import figma from '../assets/images/convertFigma.png';
 import safestroll from '../assets/images/mobile-3.jpg';
 import portfolio from '../assets/images/portfolio.png';
+import volunteer from '../assets/images/ellebæk.png';
 
 const projectsInfo = [
   {
-    id: 5,
+    id: 6,
     image: safestroll,
     description:
       'Safestroll is a native mobile app designed to ensure safe walks home, even at late hours or in unfamiliar areas. Users can volunteer as companions or request support from nearby volunteers. Safestroll fosters community for safer journeys.',
@@ -26,6 +27,17 @@ const projectsInfo = [
     live: null,
     tool: [TbBrandReactNative, BiLogoTypescript, BiLogoFirebase],
     toolText: ['ReactNative', 'Typescript', 'FireBase', 'FireStore', 'SSO'],
+  },
+  {
+    id: 5,
+    image: volunteer,
+    description:
+      'As part of my volunteer work at Ellebæk, I contributed to the development of a draft design using Figma. This design includes prototype link elements and page integration. I played a role in creating and refining this design to support the objectives of the project.',
+    source:
+      'https://www.figma.com/proto/X0KznaIvu5KTeH5terpPCM/Untitled?node-id=8-2',
+    live: 'https://www.figma.com/proto/X0KznaIvu5KTeH5terpPCM/Untitled?node-id=8-2',
+    tool: [BiLogoFigma],
+    toolText: ['Figma'],
   },
   {
     id: 4,
