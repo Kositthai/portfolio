@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.div`
   margin: 2rem 2rem;
-`
+`;
 
 const StyledCircle = styled.li`
   width: 2em;
@@ -10,17 +10,17 @@ const StyledCircle = styled.li`
   text-align: center;
   line-height: 2em;
   border-radius: 1em;
-  background: ${({theme}) => theme.orange};
+  background: ${({ theme }) => theme.orange};
   margin: 0 6rem;
   display: inline-block;
-  color: ${({theme}) => theme.white};
+  color: ${({ theme }) => theme.white};
   position: relative;
 
   &::before {
     content: '';
     position: absolute;
     top: 50%;
-    background: ${({theme}) => theme.primary};
+    background: ${({ theme }) => theme.primary};
     width: 12rem;
     height: 0.15rem;
     left: 100%;
@@ -66,7 +66,7 @@ const StyledCircle = styled.li`
       width: 4rem;
     }
   }
-`
+`;
 
 const ExperienceContent = styled.div`
   display: grid;
@@ -78,7 +78,7 @@ const ExperienceContent = styled.div`
   > * {
     margin: 0 2rem;
   }
-`
+`;
 
 const ExperienceItem = styled.div`
   text-align: center;
@@ -95,7 +95,7 @@ const ExperienceItem = styled.div`
     width: 70%;
     margin: 1rem auto;
   }
-`
+`;
 
 const CircleContainer = styled.ul`
   display: flex;
@@ -103,7 +103,7 @@ const CircleContainer = styled.ul`
   align-items: center;
   justify-content: center;
   width: 100%;
-`
+`;
 
 const ExperienceBar: React.FC = () => {
   return (
@@ -133,13 +133,13 @@ const ExperienceBar: React.FC = () => {
           <p>Full-stack 34 weeks course</p>
         </ExperienceItem>
         <ExperienceItem>
-          <p>Aug 2023 - Present</p>
+          <p>March 2023 - Present</p>
           <p>Walor</p>
           <p>Front-end developer </p>
         </ExperienceItem>
       </ExperienceContent>
     </Container>
-  )
-}
+  );
+};
 
-export default ExperienceBar
+export default ExperienceBar;
