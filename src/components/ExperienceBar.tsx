@@ -133,7 +133,7 @@ const ExperienceBar: React.FC = () => {
           <p>Full-stack 34 weeks course</p>
         </ExperienceItem>
         <ExperienceItem>
-          <p>March 2023 - Present</p>
+          <p>Mar 2023 - Present</p>
           <p>Walor</p>
           <p>Front-end developer </p>
         </ExperienceItem>
