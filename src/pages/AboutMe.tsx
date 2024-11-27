@@ -4,6 +4,7 @@ import mySelf from '../assets/images/IMG_1500-blur-removebg-preview.png';
 import bike from '../assets/images/bicycle.png';
 import hyf from '../assets/images/hyf-logo.svg';
 import walor from '../assets/images/walor-logo.svg';
+import gismap from '../assets/images/gismap.png';
 import Skills from '../components/Skills';
 import Certificate from '../components/Certificate';
 import { experienceAnimation } from '../animations/experienceAnimation';
@@ -100,14 +101,14 @@ const ResumeContainer = styled.div`
   }
 `;
 
-const StlyedBike = styled.img`
+const StyledBike = styled.img`
   width: 7rem;
 `;
 
 const StyledHyf = styled.img`
   width: 3rem;
   position: absolute;
-  left: 26.5%;
+  left: 21%;
   opacity: 0;
 
   @media (max-width: 1280px) {
@@ -119,14 +120,14 @@ const StyledHyfMessage = styled.p`
   color: ${({ theme }) => theme.primary};
   font-weight: 600;
   position: absolute;
-  left: 28%;
+  left: 21.5%;
   opacity: 0;
 `;
 
 const StyledWalor = styled.img`
   width: 4rem;
   position: absolute;
-  left: 63%;
+  left: 52%;
   opacity: 0;
 `;
 
@@ -134,7 +135,22 @@ const StyledWalorMessage = styled.p`
   color: ${({ theme }) => theme.primary};
   font-weight: 600;
   position: absolute;
-  left: 65%;
+  left: 52.5%;
+  opacity: 0;
+`;
+
+const StyledGISMAP = styled.img`
+  width: 6rem;
+  position: absolute;
+  left: 85%;
+  opacity: 0;
+`;
+
+const StyledGISMAPMessage = styled.p`
+  color: ${({ theme }) => theme.primary};
+  font-weight: 600;
+  position: absolute;
+  left: 86%;
   opacity: 0;
 `;
 
@@ -207,24 +223,29 @@ const AboutMe: React.FC = () => {
             {window.matchMedia('(max-width: 1024px)').matches && (
               <StyledImage src={mySelf} />
             )}
+
             <div>
-              <OrangeText>I am a full-stack developer</OrangeText> with a
-              background in logistics and supply chain management. Curiosity and
-              the desire to learn new things sparked my career transition to
-              development. Learning by doing excites me, and I have learned a
-              lot from mistakes, which has helped me become a better problem
-              solver.
-            </div>
-            <div>
-              This discovery led me to join the{' '}
-              <OrangeText>Hack Your Future Bootcamp</OrangeText>, an experience
-              that opened up new opportunities, including my current role
-              full-stack developer at <OrangeText>Walor.</OrangeText>
-              <br></br>
-              With my acquired skills and growing passion, I'm eager to take on
-              new challenges and opportunities in my career. I'm open to
-              exploring different avenues and am excited to see where my journey
-              takes me next.
+              My name is <OrangeText>Vipavee</OrangeText>, and I am a passionate
+              and dedicated individual with a background in{' '}
+              <OrangeText>web development</OrangeText> and experience working
+              with <OrangeText>startup companies</OrangeText>. Originally from
+              Thailand, I decided to embark on a new career path after moving to
+              Denmark. I am a graduate of{' '}
+              <OrangeText>Hack Your Future </OrangeText>, where I honed my
+              skills in <OrangeText>software development</OrangeText>, teamwork,
+              and problem-solving. Since then, I’ve had the opportunity to
+              contribute as an intern at two startups, gaining hands-on
+              experience in creating and improving digital solutions. While I am
+              still actively seeking a full-time role, I am committed to{' '}
+              <OrangeText>continuous learning</OrangeText> and personal growth.
+              To strengthen my portfolio and further develop my skills, I am
+              currently working on an independent project. Additionally, I am
+              actively learning both <OrangeText>Danish and English</OrangeText>{' '}
+              to better integrate and communicate in my professional and
+              personal life. I am highly <OrangeText>motivated</OrangeText>,{' '}
+              <OrangeText>adaptable</OrangeText>, and always eager to learn new
+              technologies. I value <OrangeText>collaboration</OrangeText> and
+              take pride in contributing to projects that make a difference.
             </div>
           </IntroduceMessage>
         </ResumeContainer>
@@ -241,13 +262,17 @@ const AboutMe: React.FC = () => {
         ) : (
           <AnimationContainer ref={myRef}>
             <Experience className="experience">Experiences</Experience>
-            <StlyedBike src={bike} className="bike" />
+            <StyledBike src={bike} className="bike" />
             <StyledHyf src={hyf} className="hyf" />
             <StyledWalor src={walor} className="walor" />
+            <StyledGISMAP src={gismap} className="gismap" />
             <StyledHyfMessage className="hyf-message">2022</StyledHyfMessage>
             <StyledWalorMessage className="walor-message">
               2023
             </StyledWalorMessage>
+            <StyledGISMAPMessage className="gismap-message">
+              2024
+            </StyledGISMAPMessage>
           </AnimationContainer>
         )}
       </Wrapper>

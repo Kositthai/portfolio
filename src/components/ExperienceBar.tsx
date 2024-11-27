@@ -116,12 +116,6 @@ const ExperienceBar: React.FC = () => {
       </CircleContainer>
       <ExperienceContent>
         <ExperienceItem>
-          <p>2015- 2019</p>
-          <p>
-            Bachelor of Logistics and <br></br>supply chain management
-          </p>
-        </ExperienceItem>
-        <ExperienceItem>
           <p>2019- 2021</p>
           <p>
             Sumitronics (Thailand) <br></br>Sales Coordinator
@@ -133,8 +127,13 @@ const ExperienceBar: React.FC = () => {
           <p>Full-stack 34 weeks course</p>
         </ExperienceItem>
         <ExperienceItem>
-          <p>Mar 2023 - Present</p>
-          <p>Walor</p>
+          <p>Mar 2023 - March</p>
+          <p>Walor (Copenhagen)</p>
+          <p>Full-stack developer </p>
+        </ExperienceItem>
+        <ExperienceItem>
+          <p>May 2024 - October 2024</p>
+          <p>GISMAP Aps (Copenhagen)</p>
           <p>Front-end developer </p>
         </ExperienceItem>
       </ExperienceContent>

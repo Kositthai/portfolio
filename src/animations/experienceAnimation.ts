@@ -1,4 +1,4 @@
-import gsap from 'gsap'
+import gsap from 'gsap';
 
 export const experienceAnimation = () => {
   const experienceTimeLine = gsap.timeline({
@@ -6,19 +6,21 @@ export const experienceAnimation = () => {
       ease: 'power2.out',
     },
     repeat: 1,
-  })
+  });
 
-  const bike = '.bike'
-  const experience = '.experience'
-  const hyf = '.hyf'
-  const hyfMessage = '.hyf-message'
-  const walor = '.walor'
-  const walorMessage = '.walor-message'
-  const screenWidth = window.innerWidth
+  const bike = '.bike';
+  const experience = '.experience';
+  const hyf = '.hyf';
+  const hyfMessage = '.hyf-message';
+  const walor = '.walor';
+  const walorMessage = '.walor-message';
+  const gismap = '.gismap';
+  const gismapMessage = '.gismap-message';
+  const screenWidth = window.innerWidth;
 
   experienceTimeLine
-    .to(bike, {x: screenWidth / 5, duration: 2, ease: 'bounce'})
-    .to(experience, {opacity: 0, duration: 3, x: '-10%'})
+    .to(bike, { x: screenWidth / 6.5, duration: 2, ease: 'bounce' })
+    .to(experience, { opacity: 0, duration: 3, x: '-10%' })
     .to(hyf, {
       opacity: 1,
       y: '-45%',
@@ -29,24 +31,32 @@ export const experienceAnimation = () => {
       opacity: 0,
       ease: 'back.out',
     })
-    .to(hyfMessage, {y: '-45%', opacity: 1, duration: 2}, '<')
+    .to(hyfMessage, { y: '-45%', opacity: 1, duration: 2 }, '<')
     .to(hyfMessage, {
       opacity: 0,
       ease: 'back.out',
     })
-    .to(bike, {x: screenWidth / 2, duration: 2, ease: 'bounce'})
-    .to(walor, {y: '45%', opacity: 1, duration: 2, ease: 'back.out'})
+    .to(bike, { x: screenWidth / 2.5, duration: 2, ease: 'bounce' })
+    .to(walor, { y: '-45%', opacity: 1, duration: 2, ease: 'back.out' })
     .to(walor, {
       opacity: 0,
       ease: 'back.out',
     })
-    .to(walorMessage, {y: '45%', opacity: 1, duration: 2}, '<')
-    .to(walorMessage, {opacity: 0, ease: 'back.out'})
-    .to(bike, {x: screenWidth, duration: 3})
+    .to(walorMessage, { y: '-45%', opacity: 1, duration: 2 }, '<')
+    .to(walorMessage, { opacity: 0, ease: 'back.out' })
+    .to(bike, { x: screenWidth / 1.5, duration: 3 })
+    .to(gismap, { y: '-45%', opacity: 1, duration: 2, ease: 'back.out' })
+    .to(gismap, {
+      opacity: 0,
+      ease: 'back.out',
+    })
+    .to(gismapMessage, { y: '-45%', opacity: 1, duration: 2 }, '<')
+    .to(gismapMessage, { opacity: 0, ease: 'back.out' })
+    .to(bike, { x: screenWidth, duration: 3 });
 
   const restartExperienceAnimation = () => {
-    experienceTimeLine.restart()
-  }
+    experienceTimeLine.restart();
+  };
 
-  return {timeline: experienceTimeLine, restartExperienceAnimation}
-}
+  return { timeline: experienceTimeLine, restartExperienceAnimation };
+};
